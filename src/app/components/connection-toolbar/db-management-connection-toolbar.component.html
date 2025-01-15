@@ -1,0 +1,22 @@
+
+<div (click)="hiddentoolbar=false" class="value">
+  <img style="width: 80px; height: 70px; margin-top: 65px;" [src]="'../../../assets/' + viewModel.icon + '.png'"  alt="">
+</div>
+
+<div [hidden]="hiddentoolbar" class="toolbar">
+  <button (click)="SelectValue('delivery-truck')" 
+          matTooltip="Truck">
+    <span>Truck</span>
+  </button>
+  <button (click)="SelectValue('forklift-truck')" 
+          matTooltip="Forklift">
+    <span>Forklift</span>
+  </button>
+  <button (click)="SelectValue('bullet-train')" 
+  matTooltip="Train">
+<span>Train</span>
+</button>
+
+
+
+</div>

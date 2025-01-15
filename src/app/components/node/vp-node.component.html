@@ -1,0 +1,161 @@
+@if (node) {
+
+  @if(node.type[0] === 'u' || node.type[0] === 's'|| node.type[0] === 'f'){
+  <div style="position:relative;" [fInputMultiple]="true" [fOutputMultiple]="true" fNodeOutput [fOutputId]="node.output!"
+    fNodeInput [fInputId]="node.input">
+    <div class="boxup" style="position: relative;">
+  
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        @if(node.type[0] === 'u'){
+        <div style="display: flex;align-items: center;">
+          <img style="width: 90px; height: 90px;" src="../../../assets/inventory.png" alt="">
+        </div>
+        }
+        @if(node.type[0] === 's'){
+        <div style="display: flex;align-items: center;" class="p-2">
+          <img style="width: 90px; height: 90px;" src="../../../assets/flowchart.png" alt="">
+        </div>
+        }
+        @if(node.type[0] === 'f'){
+        <div style="display: flex;align-items: center;">
+          <img style="width: 90px; height: 90px;" src="../../../assets/fifo.png" alt="">
+        </div>
+        }
+        @if(node.type[0] === 'u'){
+        <mat-form-field class="mt-2 " appearance="outline">
+          <mat-label>Depo İsmi</mat-label>
+          <input [(ngModel)]="node.data.name" (ngModelChange)="save(node.id,node.data)" matInput placeholder="">
+        </mat-form-field>
+        }
+      </div>
+    </div>
+    <div class="boxalign"></div>
+    <div class="boxalt">
+  
+      <mat-form-field class="mt-2 " appearance="outline">
+        <mat-label>Değer</mat-label>
+        <input [(ngModel)]="node.data.current" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+          placeholder="">
+      </mat-form-field>
+      @if(node.type[0] !== 'f'){
+      <mat-form-field class="mt-2" appearance="outline">
+        <mat-label>Minimum Değer</mat-label>
+        <input [(ngModel)]="node.data.min" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+          placeholder="">
+      </mat-form-field>
+      }
+      <mat-form-field class="mt-2" appearance="outline">
+        <mat-label>Maximum Değer</mat-label>
+        <input [(ngModel)]="node.data.max" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+          placeholder="">
+      </mat-form-field>
+  
+  
+  
+  
+  
+  
+    </div>
+  </div>
+  }
+  @if(node.type[0] === 'k'){
+  <div [fInputMultiple]="true" [fOutputMultiple]="true" fNodeOutput [fOutputId]="node.output!" fNodeInput
+    [fInputId]="node.input" style="position: relative;">
+    <div class="boxup">
+      <div class="container-fluid">
+        <div class=" p-3">
+          <div class="row">
+            <div style="position: absolute; 
+            top: 10px; 
+            right: 20px; 
+            width: 10px;">
+              <section class="radio-button">
+                <mat-radio-group [(ngModel)]="node.data.radiobtn" (ngModelChange)="save(node.id,node.data)">
+                  <mat-radio-button class="red" value="0">After</mat-radio-button>
+                  <mat-radio-button class="green" value="1">Before</mat-radio-button>
+                  <mat-radio-button class="yellow" value="2">Top</mat-radio-button>
+                </mat-radio-group>
+              </section>
+            </div>
+            <div class="  h4 text-center">
+              {{node.data.name}}
+            </div>
+  
+          </div>
+  
+  
+          <div class=" mt-5  row">
+            <div class="">
+              <mat-icon>remove_red_eye</mat-icon>
+  
+            </div>
+            <div class="col-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Input 1</mat-label>
+                <input [(ngModel)]="node.data.cycleTime" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+                  placeholder="">
+              </mat-form-field>
+            </div>
+            <div class="col-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Input 2</mat-label>
+                <input [(ngModel)]="node.data.dee" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+                  placeholder="">
+              </mat-form-field>
+            </div>
+            <div class="col-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Input 3</mat-label>
+                <input [(ngModel)]="node.data.wrp" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+                  placeholder="">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="boxalign"></div>
+    <div class="boxalt">
+  
+      <div class="row mt-2">
+        <div class="col-3 mt-2">
+          <img src="../../../assets/clock.png" style="width: 50px; height: 45px;" alt="">
+        </div>
+        <mat-form-field class="mt-2 col-9 " appearance="outline">
+          <mat-label>Cycle Time</mat-label>
+          <input [(ngModel)]="node.data.cycleTime" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+            placeholder="">
+        </mat-form-field>
+      </div>
+      <div class="row mt-2">
+        <div class="col-3 mt-2">
+          <img src="../../../assets/yield.png" style="width: 50px; height: 45px;" alt="">
+        </div>
+        <mat-form-field class="mt-2 col-9 " appearance="outline">
+          <mat-label>Dee</mat-label>
+          <input [(ngModel)]="node.data.dee" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+            placeholder="">
+        </mat-form-field>
+      </div>
+      <div class="row mt-2">
+        <div class="col-3 mt-2">
+          <img src="../../../assets/yield.png" style="width: 50px; height: 45px;" alt="">
+        </div>
+        <mat-form-field class="mt-2 col-9 " appearance="outline">
+          <mat-label>Wrp</mat-label>
+          <input [(ngModel)]="node.data.wrp" type="number" (ngModelChange)="save(node.id,node.data)" matInput
+            placeholder="">
+        </mat-form-field>
+      </div>
+  
+  
+  
+  
+  
+    </div>
+  </div>
+  }
+  <div fNodeOutlet></div>
+  
+  
+  }

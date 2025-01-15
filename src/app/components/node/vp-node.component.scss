@@ -1,0 +1,119 @@
+
+@use '@angular/material' as mat;
+@include mat.core();
+
+:host {
+	@include mat.form-field-overrides((
+	  filled-caret-color: orange,
+	  filled-focus-active-indicator-color: red,
+    container-vertical-padding: 10px,
+    container-height: 40px,
+    outlined-label-text-tracking: 0.1em,
+    outlined-label-text-weight: 900,
+	));
+  }
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+.red {
+  @include mat.radio-overrides((
+    selected-icon-color: red,
+    selected-focus-icon-color: red,
+    selected-hover-icon-color: red
+  ));
+}
+.yellow {
+  @include mat.radio-overrides((
+    selected-icon-color: yellow,
+    selected-focus-icon-color: yellow,
+    selected-hover-icon-color: yellow
+  ));
+}
+.green {
+  @include mat.radio-overrides((
+    selected-icon-color: green,
+    selected-focus-icon-color: green,
+    selected-hover-icon-color: green
+  ));
+}
+
+.f-node-output,
+.f-node-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 17px;
+}
+
+.f-node-outlet {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--vp-outlet-color);
+  border-radius: 50%;
+  border: 2px solid var(--vp-outlet-border-color);
+  display: none;
+}
+
+
+
+.interactive-node-body {
+  border-color: var(--vp-selected-node-border-color) !important;
+}
+
+.f-node-outlet {
+  display: block;
+}
+
+
+
+
+
+
+
+.boxalign {
+  width: 300px;
+  height: 10px;
+}
+
+.boxalt {
+  width: 300px;
+  color: var(--node-color);
+  background: #ffffff;
+  border-radius: 2px;
+  border-radius: 20px;
+  border: 3px solid rgba(235, 235, 245, 0.38);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  cursor: move;
+  &:active {
+    box-shadow: var(--node-shadow);
+  }
+  
+}
+
+.boxup {
+  width: 300px;
+  border-radius: 2px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 3px solid rgba(235, 235, 245, 0.38);
+  cursor: move;
+
+
+}
+
+
+
+// .radio-button {
+//   display: flex;
+//   align-content: center;
+//   align-items: center;
+//   height: 60px;
+// }
+
