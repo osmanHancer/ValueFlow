@@ -66,9 +66,8 @@ export class VpFlowComponent implements OnInit {
 
   public onInitialized(): void {
     this.fCanvasComponent.fitToScreen(new Point(40, 40), false);
-    this.fZoomDirective.step = 0.1;
- 
-    // this.fZoomDirective.maximumZoom = "0.2"; // Property does not exist
+    this.fCanvasComponent.resetScaleAndCenter();
+    this.fCanvasComponent.setZoom(0.8);
   }
 
   private getData(): void {

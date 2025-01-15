@@ -6,12 +6,12 @@ export const routes: Routes = [
 
 
             {
-                path: 'deneme',
+                path: '',
                 component:LayoutadminComponent,
 
                 children: [
                     {
-                        path: 'foblex',
+                        path: '',
                         component: VpFlowComponent
                     }
                 ]
